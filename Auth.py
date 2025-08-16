@@ -232,9 +232,9 @@ def sign_in():
 
     # 处理账号,密码和认证方式
     if auth_way != "0":
-        account_info = f"%2C0%2{account}%40{auth_info}"
+        account_info = f"%2C0%2C{account}%40{auth_info}"
     else:
-        account_info = f"%2C0%2{account}"
+        account_info = f"%2C0%2C{account}"
 
     # 密码进行base64加密
     password_info = base64.b64encode(password.encode("ascii")).decode("ascii")
