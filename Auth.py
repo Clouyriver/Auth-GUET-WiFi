@@ -10,6 +10,16 @@ from pathlib import Path
 
 InterfaceInfo = Dict[str, Dict[str, List[str] | Optional[str]]]
 
+headers = {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,ko;q=0.7",
+    "Connection": "keep-alive",
+    "Host": "10.0.1.5",
+    "Referer": "http://10.0.1.5/",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+}
+
 
 def get_network_info():
     """获取网络接口的IP和MAC地址信息(支持Windows和Linux)"""
@@ -109,17 +119,6 @@ def get_network_info():
     }
 
     return interfaces
-
-
-headers = {
-    "Accept": "*/*",
-    "Accept-Encoding": "gzip, deflate",
-    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,ko;q=0.7",
-    "Connection": "keep-alive",
-    "Host": "10.0.1.5",
-    "Referer": "http://10.0.1.5/",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
-}
 
 
 def get_config_path():
@@ -230,8 +229,6 @@ def sign_in():
     else:
         # 如果没有配置文件，则获取用户输入
         account, password, auth_way, auth_info = get_user_input()
-        # 保存配置
-        save_config(account, password, auth_way)
 
     # 处理账号,密码和认证方式
     if auth_way != "0":
