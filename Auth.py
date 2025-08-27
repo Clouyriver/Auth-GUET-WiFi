@@ -147,7 +147,7 @@ def get_user_input():
     password = str(input('请输入密码:'))
     # 认证方式
     while True:
-        auth_way = str(input("请输入认证方式 (0.校园网 1.移动 2.联通 3.电信): "))
+        auth_way = str(input("请输入认证方式 (0.校园网 1.移动 2.联通 3.电信 4.广电): "))
         if auth_way == "0":
             auth_info = ""
             break
@@ -159,9 +159,11 @@ def get_user_input():
             break
         elif auth_way == "3":
             auth_info = "telecom"
+        elif auth_way == "4":
+            auth_info = "glgd"
             break
         else:
-            print("请输入正确的认证方式 (0/1/2/3)")
+            print("请输入正确的认证方式 (0/1/2/3/4)")
             continue
 
     return account, password, auth_way, auth_info
@@ -188,6 +190,8 @@ def load_config():
                     auth_info = "unicom"
                 elif auth_way == "3":
                     auth_info = "telecom"
+                elif auth_way == "4":
+                    auth_info = "glgd"
 
                 return account, password, auth_way, auth_info
             else:
